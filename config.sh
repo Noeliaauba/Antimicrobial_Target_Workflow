@@ -1,0 +1,69 @@
+# PYTHON ENVIRONMENTS
+PY_BASE="envs/pipeline_env/bin/python"
+PY_DEEPTMHMM="envs/deeptmhmm/bin/python"
+PY_EGGNOG="envs/eggnog_env/bin/python"
+
+
+# INPUT DATA IGU¡¡dkasodjfsdfj0s9efj hacer una de input
+BACTERIA_DIR="data/input/bacterias"
+HUMAN_DIR="data/input/human"
+DEG_DIR="data/input/deg"
+
+
+# INTERMEDIATE DATA
+INTERMEDIATE_DIR="data/intermediate"
+DECOMPRESSED_DIR="$INTERMEDIATE_DIR/decompressed"
+DECOMPRESSED_BACTERIA_DIR="$DECOMPRESSED_DIR/bacterias"
+DECOMPRESSED_HUMAN_DIR="$DECOMPRESSED_DIR/human"
+DECOMPRESSED_DEG_DIR="$DECOMPRESSED_DIR/deg"
+DECOMPRESSED_EGGNOG_DIR="$DECOMPRESSED_DIR/eggnog"
+CHUNK_DIR="$INTERMEDIATE_DIR/chunks"
+
+
+# EXTERNAL TOOLS
+DEEPTMHMM="external/DeepTMHMM/predict.py"
+EGGNOG_DIR=external/eggnog
+ESSENTIAL_URL="https://tubic.org/deg_bak/download/deg-p-15.2.zip"
+DEG_FASTA="$DECOMPRESSED_DEG_DIR/degaa-p.dat"
+
+
+# FILTERING OUTPUTS
+PLASMID_FILTERED_OUT="$INTERMEDIATE_DIR/plasmid_filtered"
+PROTEIN_PREDICTION_OUT="$INTERMEDIATE_DIR/topology_predictions"
+TRANSMEMBRANE_DIR="$INTERMEDIATE_DIR/transmembrane_proteins"
+TRANSMEMBRANE_DIR2="$INTERMEDIATE_DIR/transmembrane_proteins2" #BORARRR ESTOOO
+BLAST_NONHOMOLOGOUS_OUT="$INTERMEDIATE_DIR/blast_nonhomologous"
+NONHOMOLOGOUS_DIR="$BLAST_NONHOMOLOGOUS_OUT/non_homologs"
+BLAST_NONHOMOLOGOUS_DB="$BLAST_NONHOMOLOGOUS_OUT/db"
+BLAST_ESSENTIALITY_OUT="$INTERMEDIATE_DIR/blast_essentiality"
+BLAST_ESSENTIALITY_DB="$BLAST_ESSENTIALITY_OUT/db"
+ESSENTIALITY_DIR="$BLAST_ESSENTIALITY_OUT/essential_proteins"
+
+
+# CD-HIT
+CD_HIT_IN="$INTERMEDIATE_DIR/cdhit/merged"
+CD_HIT_OUT="$INTERMEDIATE_DIR/cdhit"
+CLUSTERS_RAW="$CD_HIT_OUT/clusters_raw"
+CLUSTERS_FILTERED="$CD_HIT_OUT/clusters_filtered"
+
+# eggNOG
+EGGNOG_OUT="data/results/eggnog"
+
+# FINAL CANDIDATES PRIORITIZATION
+PRIORITIZATION_OUT="data/results/prioritization"
+
+
+# STATISTICS
+STATS_DIR="stats"
+PLASMID_STATS="$STATS_DIR/plasmid.jsonl"
+TRANSMEMBRANE_STATS="$STATS_DIR/transmembrane.jsonl"
+NONHOMOLOGOUS_STATS="$STATS_DIR/nonhomologous.jsonl"
+ESSENTIALITY_STATS="$STATS_DIR/essentiality.jsonl"
+CLUSTERS_STATS="$STATS_DIR/clusters.jsonl"
+
+
+# PLOTS
+PLOTS_DIR="plots"
+
+
+
