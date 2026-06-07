@@ -116,14 +116,13 @@ wget http://eggnog6.embl.de/download/emapperdb-5.0.2/eggnog.taxa.tar.gz
 wget http://eggnog6.embl.de/download/emapperdb-5.0.2/eggnog_proteins.dmnd.gz
 
 
-
-
-
-
-ENVIRONMENT YML 
-name: blast
-channels:
-  - bioconda
-  - conda-forge
-dependencies:
-  - blast
+## Running the workflow
+The complete pipeline can be executed through run_pipeline.sh
+The workflow will ask the user to provide:
+* Email address (required by NCBI Entrez)
+* Genome accession numbers (comma-separated)
+* Minimum number of proteins per cluster
+* Minimum number of organisms per cluster
+* GO term filtering threshold
+  
+bash run_pipeline.sh
