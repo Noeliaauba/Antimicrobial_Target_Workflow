@@ -125,7 +125,8 @@ blastp_filter() {
         --input_dir "$INPUT_DIR" \
         --output_dir "$OUTPUT_DIR" \
         --stats_file "$STATS_FILE" \
-        --mode "$MODE"
+        --mode "$MODE" \
+        --identity_threshold  35.0
 }
 
 download_deg() {
@@ -144,25 +145,24 @@ merge_fastas() {
 
 run_cdhit() {
     log "[STEP 10] CD-HIT clustering"
+    read -p "Minimum number of proteins required per cluster [default: 5]: " MIN_PROTEINS
+    MIN_PROTEINS=${MIN_PROTEINS:-5}
     check_dependencies cd-hit
     "$PY_BASE" scripts/cd_hit.py \
         --input_dir "$CD_HIT_IN/merged.faa" \
         --output_dir "$CD_HIT_OUT" \
         --cluster_threshold 0.9 \
-        --cluster_size 5
+        --cluster_size "$MIN_PROTEINS"
 }
 
 filter_clusters() {
     log "[STEP 11] Filtering clusters"
-    read -p "Minimum number of proteins required per cluster [default: 5]: " MIN_PROTEINS
-    MIN_PROTEINS=${MIN_PROTEINS:-5}
     read -p "Minimum number of organisms per cluster to ensure conservation [default: 5]: " MIN_ORGANISMS
     MIN_ORGANISMS=${MIN_ORGANISMS:-5}
     "$PY_BASE" scripts/cluster_filter.py \
         --input_dir "$CLUSTERS_RAW" \
         --output_dir "$CLUSTERS_FILTERED" \
         --stats_file "$CLUSTERS_STATS" \
-        --min_proteins "$MIN_PROTEINS" \
         --min_organisms "$MIN_ORGANISMS" \
         --finalcluster_dir "$CD_HIT_OUT" 
 }
