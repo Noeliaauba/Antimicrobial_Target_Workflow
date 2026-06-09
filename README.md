@@ -162,6 +162,7 @@ bash run_pipeline.sh
 ```
 
 ### Final treemap after the workflow execution
+```text
 .
 ├── envs/                               
 │   ├── deeptmhmm/
@@ -170,7 +171,6 @@ bash run_pipeline.sh
 │
 ├── external/                           
 │   ├── DeepTMHMM/
-│   │   
 │   └── eggnog/
 │       ├── eggnog.db.gz
 │       ├── eggnog.taxa.tar.gz
@@ -190,15 +190,13 @@ bash run_pipeline.sh
 │   │   ├── blast_nonhomologous/             
 │   │   ├── blast_essentiality/  
 │   │   └── cdhit/            
-│   │                 
 │   │
 │   └── results/                        
 │       ├── eggnog_mapper/       
 │       └── prioritized/                      
 │          
-│
 ├── analysis/                                
-│   ├── plot.py               
+│   └── plot.py               
 │ 
 ├── scripts/                               
 │   ├── download_ncbi.py
@@ -220,14 +218,12 @@ bash run_pipeline.sh
 ├── stats/ 
 ├── plots/  
 │
-│
 ├── deeptmhmm_requirements.txt
 ├── eggnog_requirements.txt
 ├── pipelinebase_requirements.txt
 │
 ├── run_pipeline.sh  
 ├── config.sh   
-│                  
 └── README.md
-
+```
 
