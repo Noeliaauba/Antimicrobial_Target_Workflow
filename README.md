@@ -110,6 +110,7 @@ python external/DeepTMHMM/predict.py \
 
 ## eggNOG Database Installation
 The official download_eggnog_data.py utility was not used because the download endpoints referenced by eggNOG-mapper v2.1.13 were unavailable. Direct download links to eggNOG database version 5.0.2 are therefore provided to guarantee reproducibility of the reported results.
+mkdir -p external/eggnog
 cd external/eggnog
 wget http://eggnog6.embl.de/download/emapperdb-5.0.2/eggnog.db.gz
 wget http://eggnog6.embl.de/download/emapperdb-5.0.2/eggnog.taxa.tar.gz
