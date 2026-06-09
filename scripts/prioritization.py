@@ -81,6 +81,7 @@ def prioritize(input_file: Path, output_file: Path, go_threshold: int):
             # Scores
             total_score = go_score + ko_score + map_score
             results.append({"protein_id": row["query"],"go_score": go_score,"ko_score": ko_score,"map_score": map_score,"total_score": total_score})
+    
     results.sort(key=lambda x: x["total_score"],reverse=True)
     max_score = results[0]["total_score"]
     high_threshold = max_score * 0.7

@@ -6,7 +6,6 @@ from pathlib import Path
 #Local imports form utils.py to reuse declared functions
 from utils import ensure_dir,validate_dir, required_paths_exist, run_command
 
-
 # Verifies that required eggNOG database files exist
 def eggnog_db_ready(db_dir: Path):
     required = [

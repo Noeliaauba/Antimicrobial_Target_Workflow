@@ -85,6 +85,7 @@ def build_stats(genome, total, kept):
     percentage = (round((kept / total) * 100, 2) if total > 0 else 0)
     return {"genome": genome,"total": total,"kept": kept,"removed": removed,"percentage": percentage}
 
+
 # Write a single JSON object as JSONL line.
 def write_jsonl(handle, data):
     handle.write(json.dumps(data) + "\n")

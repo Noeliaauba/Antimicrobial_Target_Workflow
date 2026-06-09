@@ -69,5 +69,6 @@ def main():
         base = fasta.stem # Uses the filename as base for output
         output_tsv = args.output_dir / f"{base}.tsv"
         run_blastp(query_fasta=fasta, db_prefix=db_prefix, output_tsv=output_tsv, evalue=args.evalue, threads=args.threads)
+
 if __name__ == "__main__":
     main()

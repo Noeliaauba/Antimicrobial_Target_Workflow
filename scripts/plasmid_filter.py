@@ -6,6 +6,7 @@ import json
 #Local imports form utils.py to reuse declared functions
 from utils import build_stats,write_jsonl,ensure_dir,validate_dir
 
+
 # Filter plasmid-associated sequences '(plasmid)'
 def filter_plasmid(input_fasta: Path, output_fasta: Path):
     keep = True

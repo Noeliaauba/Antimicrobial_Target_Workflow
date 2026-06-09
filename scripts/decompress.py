@@ -9,7 +9,6 @@ from pathlib import Path
 #Local imports form utils.py to reuse declared functions
 from utils import ensure_dir, validate_dir
 
-
 # Check if the file is a FASTA based on its extension
 def is_fasta(file_path: Path):
     return file_path.suffix in (".fa", ".faa", ".fasta")

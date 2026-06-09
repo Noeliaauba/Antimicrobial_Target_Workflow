@@ -8,7 +8,6 @@ from pathlib import Path
 #Local imports form utils.py to reuse declared functions
 from utils import ensure_dir, download_file, already_exists 
 
-
 # Recives a terminology (Accession number) and searches for the corresponding assembly in NCBI (UID) 
 def search_assembly(terminology): 
     # sends a request for search in assembly database (eSearch) and get the first result 

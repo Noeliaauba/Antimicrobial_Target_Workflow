@@ -12,9 +12,11 @@ def get_fastas(input_dir: Path):
     fastas = find_fastas(input_dir)
     return fastas
 
+
 # Generate unique FASTA identifier genomeXXX|proteinXXX
 def make_unique_id(file_stem: str, record_id: str):
     return f"{file_stem}|{record_id}"
+
 
 # All multiple FASTA files are merged into a single file 
 def merge_fastas(input_dir: Path, output_dir: Path):

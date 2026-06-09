@@ -7,7 +7,6 @@ import json
 #Local imports form utils.py to reuse declared functions
 from utils import build_stats, write_jsonl,ensure_dir,validate_dir
 
-
 # Extract sequences IDs that pass the filtering criteria (identity, e-value)
 def get_ids(tsv_file, id_col=0, identity_col=2,min_identity=35.0):
     selected_ids = set()

@@ -11,7 +11,6 @@ from utils import ensure_dir,run_command,find_fastas
 def resolve_fasta(path: Path) -> Path:
     if path.is_file():
         return path
-
     fastas = find_fastas(path)
     return fastas[0]
 

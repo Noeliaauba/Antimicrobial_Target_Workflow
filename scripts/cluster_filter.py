@@ -80,8 +80,7 @@ def get_representative_ids(cdhit_dir: Path):
             if "*" in line:  
                 part = line.split(">")[1]        # NP_217790.1... 
                 rep_id = part.split("...")[0]    # NP_217790.1
-                rep_ids.add(rep_id)
-    
+                rep_ids.add(rep_id) 
     return rep_ids
 
 

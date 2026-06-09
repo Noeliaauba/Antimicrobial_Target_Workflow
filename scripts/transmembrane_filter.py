@@ -6,7 +6,6 @@ import json
 #Local imports form utils.py to reuse declared functions
 from utils import build_stats, write_jsonl, ensure_dir, validate_dir
 
-
 # Extract transmembrane (TM) protein IDs 
 def extract_tm_ids(predicted_file: Path):
     tm_ids = set()

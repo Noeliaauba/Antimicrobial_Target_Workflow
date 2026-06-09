@@ -9,7 +9,6 @@ import shutil
 from utils import ensure_dir,validate_dir,already_exists,ensure_dir, run_command
 CHUNK_SIZE = 150
 
-
 # Splits a FASTA file into 150-size chunks 
 def split_fasta(fasta_path, chunk_size, out_dir):
     ensure_dir(out_dir)
@@ -18,7 +17,6 @@ def split_fasta(fasta_path, chunk_size, out_dir):
     current_chunk = []
     count = 0
     chunk_idx = 0
-
     with open(fasta_path) as f:
         for line in f:
             # Detects header lines of the file
@@ -73,6 +71,7 @@ def merge_outputs(output_dir, merged_file):
             if results_file.exists():
                 outfile.write(results_file.read_text())
                 outfile.write("\n")
+
 
 # Coordinate chunking, topology prediction through DeepTMHMM and merging of files
 def process_genome(fasta_file,chunk_dir, topology_dir,deeptmhmm_path):

@@ -7,7 +7,6 @@ import time
 #Local imports form utils.py to reuse declared functions
 from utils import ensure_dir, download_file
 
-
 # Download DEG database file from a remote URL with 3 retry attempts if download fails
 def download_deg(url: str, output_dir: Path, retries=3):
     ensure_dir(output_dir)
