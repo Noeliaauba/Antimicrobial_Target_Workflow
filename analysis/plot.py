@@ -80,6 +80,7 @@ def parse_args():
     parser.add_argument("--plots_dir", type=Path, required=True)
     return parser.parse_args()
 
+
 # Retrieve all JSONL statistics files excluding cluster statistics 
 def get_stats_files(stats_dir: Path):
     stats_files = []
@@ -89,6 +90,7 @@ def get_stats_files(stats_dir: Path):
         stats_files.append(file)
 
     return stats_files
+
 
 def main():
     # Read the parameters

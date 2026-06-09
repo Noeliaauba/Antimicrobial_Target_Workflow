@@ -3,12 +3,10 @@ PY_BASE="envs/pipeline_env/bin/python"
 PY_DEEPTMHMM="envs/deeptmhmm/bin/python"
 PY_EGGNOG="envs/eggnog_env/bin/python"
 
-
 # INPUT DATA 
 BACTERIA_DIR="data/input/bacterias"
 HUMAN_DIR="data/input/human"
 DEG_DIR="data/input/deg"
-
 
 # INTERMEDIATE DATA
 INTERMEDIATE_DIR="data/intermediate"
@@ -19,13 +17,11 @@ DECOMPRESSED_DEG_DIR="$DECOMPRESSED_DIR/deg"
 DECOMPRESSED_EGGNOG_DIR="$DECOMPRESSED_DIR/eggnog"
 CHUNK_DIR="$INTERMEDIATE_DIR/chunks"
 
-
 # EXTERNAL TOOLS
 DEEPTMHMM="external/DeepTMHMM/predict.py"
 EGGNOG_DIR=external/eggnog
 ESSENTIAL_URL="https://tubic.org/deg_bak/download/deg-p-15.2.zip"
 DEG_FASTA="$DECOMPRESSED_DEG_DIR/degaa-p.dat"
-
 
 # FILTERING OUTPUTS
 PLASMID_FILTERED_OUT="$INTERMEDIATE_DIR/plasmid_filtered"
@@ -39,7 +35,6 @@ BLAST_ESSENTIALITY_OUT="$INTERMEDIATE_DIR/blast_essentiality"
 BLAST_ESSENTIALITY_DB="$BLAST_ESSENTIALITY_OUT/db"
 ESSENTIALITY_DIR="$BLAST_ESSENTIALITY_OUT/essential_proteins"
 
-
 # CD-HIT
 CD_HIT_IN="$INTERMEDIATE_DIR/cdhit/merged"
 CD_HIT_OUT="$INTERMEDIATE_DIR/cdhit"
@@ -52,7 +47,6 @@ EGGNOG_OUT="data/results/eggnog"
 # FINAL CANDIDATES PRIORITIZATION
 PRIORITIZATION_OUT="data/results/prioritization"
 
-
 # STATISTICS
 STATS_DIR="stats"
 PLASMID_STATS="$STATS_DIR/plasmid.jsonl"
@@ -60,7 +54,6 @@ TRANSMEMBRANE_STATS="$STATS_DIR/transmembrane.jsonl"
 NONHOMOLOGOUS_STATS="$STATS_DIR/nonhomologous.jsonl"
 ESSENTIALITY_STATS="$STATS_DIR/essentiality.jsonl"
 CLUSTERS_STATS="$STATS_DIR/clusters.jsonl"
-
 
 # PLOTS
 PLOTS_DIR="plots"
