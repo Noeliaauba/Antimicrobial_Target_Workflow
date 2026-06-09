@@ -128,14 +128,15 @@ Replace:
   torch.load('esm_model_args.pt')
   torch.load('esm_model_alphabet.pt')
   torch.load('esm_model_state_dict.pt')
-  torch.load(path, map_location=device)
+  torch.load(path, map_location=lambda storage, loc: storage)
+
 ```
 New lines:
 ```python
   torch.load('esm_model_args.pt', weights_only=False) 
   torch.load('esm_model_alphabet.pt', weights_only=False) 
   torch.load('esm_model_state_dict.pt', weights_only=False)
-  torch.load(path, map_location=device, weights_only=False)
+  torch.load(path, map_location=lambda storage, loc: storage, weights_only=False)
  ```
 
 6. After applying these modifications, test the installation to validate that predictions run successfully:
