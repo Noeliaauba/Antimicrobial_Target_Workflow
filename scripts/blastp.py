@@ -46,7 +46,7 @@ def parse_args():
     parser.add_argument("--db_fasta", type=Path, required=True)
     parser.add_argument("--output_dir", type=Path, required=True)
     parser.add_argument("--db_dir", type=Path, required=True)
-    parser.add_argument("--evalue", type=float, default=1e-3)
+    parser.add_argument("--evalue", type=float, default=0.001)
     parser.add_argument("--threads", type=int, default=4)
     return parser.parse_args()
 

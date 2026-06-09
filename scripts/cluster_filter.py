@@ -21,7 +21,7 @@ def process_cluster(cluster_file: Path):
 
 
 # Filter clusters according to a minimum protein number and a minimum organism presence threshold
-def filter_clusters(input_dir: Path, output_dir: Path, stats_file: Path, min_proteins: int, min_organisms: int):
+def filter_clusters(input_dir: Path, output_dir: Path, stats_file: Path, min_organisms: int):
     ensure_dir(output_dir)
     ensure_dir(stats_file.parent)
     # gets all cluster_*.faa files 
@@ -37,7 +37,7 @@ def filter_clusters(input_dir: Path, output_dir: Path, stats_file: Path, min_pro
             total_clusters += 1
             # Computes the statistics for the cluster that asses the thresholds
             stat = process_cluster(cluster_file)
-            keep = (stat["proteins"] >= min_proteins and stat["organisms"] >= min_organisms)
+            keep = (stat["organisms"] >= min_organisms)
             if keep:
                 kept_clusters += 1
                 total_proteins_kept += stat["proteins"]
@@ -104,7 +104,6 @@ def parse_args():
     parser.add_argument("--input_dir", type=Path, required=True)
     parser.add_argument("--output_dir", type=Path, required=True)
     parser.add_argument("--stats_file", type=Path, required=True)
-    parser.add_argument("--min_proteins", type=int, default=5)
     parser.add_argument("--min_organisms", type=int, default=5)
     parser.add_argument("--finalcluster_dir", type=Path, required=True)
     return parser.parse_args()
@@ -116,7 +115,7 @@ def main():
     validate_dir(args.input_dir)
     validate_dir(args.finalcluster_dir)
     # Applies the filtering criteria to the clusters 
-    filter_clusters(args.input_dir, args.output_dir, args.stats_file, args.min_proteins, args.min_organisms)
+    filter_clusters(args.input_dir, args.output_dir, args.stats_file, args.min_organisms)
     # Extract representative sequence IDs and creates a file with these representative sequences 
     rep_ids = get_representative_ids(args.finalcluster_dir)
     extract_representatives_from_filtered(args.output_dir, rep_ids, args.finalcluster_dir)

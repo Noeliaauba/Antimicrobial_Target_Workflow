@@ -4,7 +4,7 @@ PY_DEEPTMHMM="envs/deeptmhmm/bin/python"
 PY_EGGNOG="envs/eggnog_env/bin/python"
 
 
-# INPUT DATA IGU¡¡dkasodjfsdfj0s9efj hacer una de input
+# INPUT DATA 
 BACTERIA_DIR="data/input/bacterias"
 HUMAN_DIR="data/input/human"
 DEG_DIR="data/input/deg"
@@ -30,6 +30,7 @@ DEG_FASTA="$DECOMPRESSED_DEG_DIR/degaa-p.dat"
 # FILTERING OUTPUTS
 PLASMID_FILTERED_OUT="$INTERMEDIATE_DIR/plasmid_filtered"
 PROTEIN_PREDICTION_OUT="$INTERMEDIATE_DIR/topology_predictions"
+TRANSMEMBRANE_DIR2="$INTERMEDIATE_DIR/transmembrane_proteinsPhobius"
 TRANSMEMBRANE_DIR="$INTERMEDIATE_DIR/transmembrane_proteins"
 BLAST_NONHOMOLOGOUS_OUT="$INTERMEDIATE_DIR/blast_nonhomologous"
 NONHOMOLOGOUS_DIR="$BLAST_NONHOMOLOGOUS_OUT/non_homologs"

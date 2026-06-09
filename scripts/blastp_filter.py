@@ -9,7 +9,7 @@ from utils import build_stats, write_jsonl,ensure_dir,validate_dir
 
 
 # Extract sequences IDs that pass the filtering criteria (identity, e-value)
-def get_ids(tsv_file, id_col=0, identity_col=2, evalue_col=10,min_identity=35.0, max_evalue=1e-3):
+def get_ids(tsv_file, id_col=0, identity_col=2,min_identity=35.0):
     selected_ids = set()
     with open(tsv_file) as f:
         for line in f:
@@ -19,9 +19,8 @@ def get_ids(tsv_file, id_col=0, identity_col=2, evalue_col=10,min_identity=35.0,
             cols = line.rstrip("\n").split("\t")
             protein_id = cols[id_col]
             identity = float(cols[identity_col])
-            evalue = float(cols[evalue_col])
             # Filtering threshold
-            if identity >= min_identity and evalue <= max_evalue:
+            if identity >= min_identity :
                 selected_ids.add(protein_id)
     return selected_ids
 
@@ -60,7 +59,7 @@ def filter_by_ids(input_fasta, output_fasta, selected_ids, mode):
 
 
 # Process all FASTA files in a directory 
-def process_directory(input_dir: Path, tsv_dir: Path, output_dir: Path, blastp_filtered: Path, mode: str):
+def process_directory(input_dir: Path, tsv_dir: Path, output_dir: Path, blastp_filtered: Path, mode: str, identity_threshold: float):
     ensure_dir(output_dir)
     ensure_dir(blastp_filtered.parent)
     # Opens in writing mode the statistics file in JSONL format
@@ -73,7 +72,7 @@ def process_directory(input_dir: Path, tsv_dir: Path, output_dir: Path, blastp_f
                 stat = {"genome": base,"total": 0,"kept": 0,"removed": 0,"percentage": 0, "status": "missing_tsv"}
                 write_jsonl(stats_out, stat)
                 continue
-            ids = get_ids(tsv_file)
+            ids = get_ids(tsv_file, id_col=0, identity_col=2, min_identity=identity_threshold)
             output_fasta = output_dir / f"{base}.faa"
             stat = filter_by_ids(fasta, output_fasta, ids, mode)
             # Saves metrics
@@ -88,6 +87,7 @@ def parse_args():
     parser.add_argument("--output_dir", type=Path, required=True)
     parser.add_argument("--stats_file", type=Path, required=True)
     parser.add_argument("--mode", required=True, choices=["include", "exclude"])
+    parser.add_argument("--identity_threshold", type=float, default=35.0)
     return parser.parse_args()
 
 
@@ -97,7 +97,7 @@ def main():
     validate_dir(args.input_dir)
     validate_dir(args.tsv_dir)
     # Run FASTA filtering workflow
-    process_directory(args.input_dir,args.tsv_dir,args.output_dir,args.stats_file, args.mode)
+    process_directory(args.input_dir,args.tsv_dir,args.output_dir,args.stats_file, args.mode, identity_threshold=args.identity_threshold)
 
 if __name__ == "__main__":
     main()
